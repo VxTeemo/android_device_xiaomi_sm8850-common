@@ -34,6 +34,8 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    'system_ext/etc/init/qspa_system.rc': blob_fixup()
+        .regex_replace(r'\$\{ro\.boot\.vendor\.qspa:-default\}', 'default'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
